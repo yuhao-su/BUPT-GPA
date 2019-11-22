@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         BUPT GPA
 // @namespace    https://ssine.cc/
-// @version      2.3
+// @version      2.4
 // @description  Calculate GPA in URP system
 // @author       Liu Siyao
 // @include      *://jwxt.bupt.edu.cn/jwLoginAction.do
@@ -64,7 +64,7 @@ Promise.all([p1, p2]).then((data) => {
   
   let calc_mat = [];
   let course_lst = [];
-  let course_lst_csv = 'Name, Credit, Grade\n'
+  let course_lst_csv = '中文课程名,英文课程名,分数,学分,课程类别\n'
   let semesters = [];
   let course_types = ['必修', '选修', '任选'];
   let semester_name = '';
@@ -160,7 +160,7 @@ Promise.all([p1, p2]).then((data) => {
           parseFloat(course_credit),
           grade
         ));
-        course_lst_csv += (course_name_en+','+course_credit+','+grade+'\n');
+        course_lst_csv += (course_name_zh+','+course_name_en+','+grade+','+course_credit+','+course_type+'\n');
       }
     }
   }
